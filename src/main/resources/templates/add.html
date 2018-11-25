@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>excelGenerator</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <!--<link href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.css" rel="stylesheet">-->
+    <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .content-wrapper {
+            background: #f3f5f7;
+            padding: 1.5rem 1.7rem;
+            transition: width 0.25s ease, margin 0.25s ease;
+            margin: 0 auto;
+            width: 600px;
+        }
+        .card-body {
+            padding: 1.5rem 0.9375rem;
+        }
+    </style>
+</head>
+<body class="container">
+<div class="content-wrapper">
+<div class="card-body" style="padding-top: 30px;">
+<form>
+    <div class="form-group">
+        <label for="url">url</label>
+        <input type="text" class="form-control" id="url" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="name">name</label>
+        <input type="text" class="form-control" id="name" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="source_name">source_name</label>
+        <div class=" row">
+        <div class="col-sm-10 col-md-10 col-xs-10">
+            <input type="text" class="form-control" id="source_name" placeholder="">
+        </div>
+        <div class="">
+            <button type="button" id="copy-name" class="btn btn-primary">同上</button>
+        </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subclass2">subclass2</label>
+        <input type="text" class="form-control" id="subclass2" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="source_type">source_type</label>
+        <select class="form-control" id="source_type">
+            <option>公众号</option>
+            <option>网站</option>
+            <option>app</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="class1">class1</label>
+        <select class="form-control" id="class1">
+            <option>教育</option>
+            <option>2</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="subclass1">subclass1</label>
+        <select class="form-control" id="subclass1">
+            <option>成人教育</option>
+            <option>2</option>
+        </select>
+    </div>
+
+     <button type="submit" class="btn btn-primary">添加</button>
+        <button type="button" class="btn btn-success" id="today_excel">导出今天EXCEL</button>
+
+        <button type="button" class="btn btn-success" disabled="disabled" id="excel_execute">生成excel</button>
+</form>
+</div>
+</div>
+</body>
+</html>
+<script>
+
+    var copying = true;
+    $(function() {
+        // $.ajax()
+    })
+    $("form").submit(function(){
+        var url = $("#url").val();
+        var name = $("#name").val();
+        var source_name = $("#source_name").val();
+        var source_type = $("#source_type").val();
+        var class1 = $("#class1").val();
+        var subclass1 = $("#subclass1").val();
+        var subclass2 = $("#subclass2").val();
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/add",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+              "url": url,
+              "name": name,
+              "source_name": source_name,
+                "source_type": source_type,
+                "class1": class1,
+                "subclass1": subclass1,
+                "subclass2": subclass2,
+            }),
+            success: function() {
+                console.log("ddd");
+            }
+        })
+        var url = $("#url").val("");
+        var name = $("#name").val("");
+        var source_name = $("#source_name").val("");
+        var subclass2 = $("#subclass2").val("");
+        return false;
+    })
+
+    $("#excel_execute").click(function(){
+
+    })
+    $("#url").change(function() {
+        var url = $("#url").val()
+        if(""===url) {
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/exist",
+            data: {
+                "url": url
+            },
+            success: function(data) {
+                if(data) {
+                    alert("已存在");
+                    $("#url").val("");
+                }
+            }
+        })
+    })
+
+    $("#copy-name").click(function(){
+        $("#copy-name").toggleClass("btn-primary");
+        $("#copy-name").toggleClass("btn-default");
+        copying = !copying;
+    })
+    $("#name").blur(function(){
+        if(copying) {
+            $("#source_name").val($("#name").val());
+        }
+    })
+
+    $("#today_excel").click(function(){
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/generate_today",
+        })
+    })
+</script>

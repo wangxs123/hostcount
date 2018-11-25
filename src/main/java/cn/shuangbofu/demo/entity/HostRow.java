@@ -2,7 +2,6 @@ package cn.shuangbofu.demo.entity;
 
 
 import lombok.Data;
-import org.hibernate.annotations.Tables;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;

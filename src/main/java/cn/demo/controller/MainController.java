@@ -1,9 +1,11 @@
-package cn.shuangbofu.demo.controller;
+package cn.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
+/**
+ * @author
+ */
 @Controller
 public class MainController {
 

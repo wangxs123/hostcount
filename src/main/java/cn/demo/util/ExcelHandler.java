@@ -1,7 +1,7 @@
-package cn.shuangbofu.demo.util;
+package cn.demo.util;
 
-import cn.shuangbofu.demo.constant.DefaultInfo;
-import cn.shuangbofu.demo.entity.HostRow;
+import cn.demo.constant.DefaultInfo;
+import cn.demo.entity.HostRow;
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.write.*;
@@ -12,7 +12,9 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * @author
+ */
 public class ExcelHandler {
 
     public static List<HostRow> readExcel(String filePath) {

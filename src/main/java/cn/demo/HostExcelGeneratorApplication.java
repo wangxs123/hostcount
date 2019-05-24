@@ -1,8 +1,10 @@
-package cn.shuangbofu.demo;
+package cn.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+/**
+ * @author
+ */
 @SpringBootApplication
 public class HostExcelGeneratorApplication {
 

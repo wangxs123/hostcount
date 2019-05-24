@@ -1,8 +1,10 @@
-package cn.shuangbofu.demo.util;
+package cn.demo.util;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+/**
+ * @author
+ */
 public class RegexUtil {
 
     public static String getMatcher(String regex, String source) {

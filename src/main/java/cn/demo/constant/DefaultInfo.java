@@ -1,5 +1,7 @@
-package cn.shuangbofu.demo.constant;
-
+package cn.demo.constant;
+/**
+ * @author
+ */
 public class DefaultInfo {
     public static final String DIR_PATH = "/usr/local/soft";
     public static final String FILE_PREFIX = "host-";

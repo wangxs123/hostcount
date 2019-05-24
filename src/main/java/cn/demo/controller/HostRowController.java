@@ -1,13 +1,16 @@
-package cn.shuangbofu.demo.controller;
+package cn.demo.controller;
 
-import cn.shuangbofu.demo.dto.HostRowDTO;
-import cn.shuangbofu.demo.service.HostRowService;
+import cn.demo.dto.HostRowDTO;
+import cn.demo.service.HostRowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author
+ */
 @RestController
 public class HostRowController {
 

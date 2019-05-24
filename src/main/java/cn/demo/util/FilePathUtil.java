@@ -1,7 +1,9 @@
-package cn.shuangbofu.demo.util;
+package cn.demo.util;
 
-import cn.shuangbofu.demo.constant.DefaultInfo;
-
+import cn.demo.constant.DefaultInfo;
+/**
+ * @author
+ */
 public class FilePathUtil {
 
     public static String getFilePath(String fileName) {

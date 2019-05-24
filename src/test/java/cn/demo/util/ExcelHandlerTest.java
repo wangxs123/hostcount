@@ -1,18 +1,14 @@
-package cn.shuangbofu.demo.util;
+package cn.demo.util;
 
-import cn.shuangbofu.demo.entity.HostRow;
-import cn.shuangbofu.demo.repository.HostRowRepository;
+import cn.demo.entity.HostRow;
+import cn.demo.repository.HostRowRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)

@@ -1,4 +1,4 @@
-package cn.shuangbofu.demo;
+package cn.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
